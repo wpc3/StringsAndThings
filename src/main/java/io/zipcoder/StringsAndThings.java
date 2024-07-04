@@ -14,10 +14,30 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
-    }
+    public Integer countYZ(String input) {
 
+        int count = 0;
+        String[] counter = input.split(" ");//split the words into an array of word
+        for (int i =0; i < counter.length; i++){
+        if(counter[i].trim().endsWith("y") || counter[i].trim().endsWith("z")){//iterating through words, trim white spaces, and checked if the word ends with y or z
+            count++;
+        }
+        }
+
+//        for (int i = 0; i < input.length() - 1; i++) {
+//            if (((input.charAt(i)) == 'z' || input.charAt(i) == 'y') && !Character.isLetter(input.charAt(i + 1))) {
+//                count++;
+//            }
+//        }
+//            if (input.charAt(input.length() - 1) == 'z' || input.charAt(input.length() - 1) == 'y') {
+//                count++;
+//            }
+
+
+
+
+        return count;
+    }
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
      * been removed (not case sensitive). You may assume that the remove string is length 1 or more.
@@ -28,7 +48,10 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+
+        System.out.println(base.replace(remove, ""));
+
+        return base.replace(remove, "");
     }
 
     /**
@@ -40,7 +63,14 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+
+    String is = input.replaceAll("is", "");//remove all occurences of is
+    String not = input.replaceAll("not", "");//remove all occurences of not
+
+    int notCount = ((input.length()-not.length())/3);//count how many times not appears
+    int isCount = ((input.length()-is.length())/2);//count how many times is appears
+
+        return notCount==isCount;//return true if not and is appears the same amount of times
     }
 
     /**
@@ -51,7 +81,27 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+
+//    int g = input.length(); //getting length of input to use in the loop
+    boolean found = true; //setting found to equal true
+    char gg = 'g';
+    for(int i = 0; i < input.length(); i++)  {
+        char g = input.charAt(i);
+//        String g = String.valueOf(input.charAt(i));
+//      String g = input.substring(i,i+1);//exctract each character
+//        if (tmpString.equals("g") && i > 0 && i < g-1){// check if there is a character before and after g
+//            if(gg == g(i+1)){
+//                found = true;
+//            }
+//            else if (gg == g.charAt(i-1)){
+//                found = false;}
+//
+//        else found = false;
+    }
+//
+
+
+        return found;
     }
 
 
@@ -63,6 +113,19 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+
+    int s = input.length();//getting length of string to put in loop
+    int count = 0;
+
+    for (int i = 0; i<s-2; i++){//iterating through the string
+       char c = input.charAt(i);//getting character at index i
+       if (c==input.charAt(i+1) && c==input.charAt(i+2)){//counting if i character is the same as the next 2 characters
+           count++;
+       }
+
+    }
+
+
+        return count;
     }
 }
